@@ -86,8 +86,8 @@ body{
 }
 .container button{
     position : relative;
-    top : 190px;
-    left : 90px;
+    top : 170px;
+    left : 80px;
     height : 70px;
     width : 250px;
     padding : 10px 10px;
@@ -104,4 +104,16 @@ body{
 .container button:hover{
     background : #e8a348;
     cursor : pointer;
+}
+.container button+a{
+    position : relative;
+    text-decoration: none;
+    color: white;
+    font-size : 16px;
+    font-weight: bold;
+    top : 240px;
+    left: -150px;
+}
+.container button+a:hover{
+    text-decoration: underline white;
 }
