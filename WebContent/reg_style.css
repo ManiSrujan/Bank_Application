@@ -20,8 +20,8 @@ body{
     left : 20%;
     height : 40em;
     width : 60em;
-    border-radius: 15px;
-    box-shadow: 2px 2px 5px black;
+    border-radius: 15px 0px 0px 15px;
+    box-shadow: 0px 2px 5px black;
     background-color: white;
 }
 .personal{
@@ -103,6 +103,7 @@ body{
 }
 .container button:hover{
     background : #e8a348;
+    border : 2px solid #ffffff;
     cursor : pointer;
 }
 .container button+a{
