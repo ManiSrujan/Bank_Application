@@ -4,6 +4,18 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<%@page import="java.sql.*" %>
+<%
+String un=(String)session.getAttribute("username");
+if(un==null||un.equals(""))
+{
+	
+	RequestDispatcher rd=request.getRequestDispatcher("Index.jsp");
+	rd.forward(request,response);
+	
+}
+%>
+
 <title>Home</title>
 <style>
 body{
@@ -183,7 +195,7 @@ animation-fill-mode : forwards;
 <div class="middle_text"><span> is Open.</span></div>
 </div>
 <div class="last_text">
-<span>Hi, Mani Srujan</span>
+<span>Hi, <%=un %></span>
 </div>
 </div>
 <div class="animate"><img src="short_logo.png" alt="image not loading"></div>
