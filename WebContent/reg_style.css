@@ -106,15 +106,18 @@ body{
     border : 2px solid #ffffff;
     cursor : pointer;
 }
-.container button+a{
-    position : relative;
-    text-decoration: none;
-    color: white;
-    font-size : 16px;
-    font-weight: bold;
-    top : 240px;
-    left: -150px;
+#login_link{
+	position : absolute;
+	bottom : 3%;
+	left : 12%;
+	font-size : 17px;
+	font-weight : 500;
 }
-.container button+a:hover{
-    text-decoration: underline white;
+#login_link a{
+    text-decoration : none;
+    color : white;
+    font-weight : bold;
+}
+#login_link a:hover{
+    text-decoration : underline white;
 }
