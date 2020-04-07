@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <%@page import="java.sql.*" %>
-<%
+<%-- <%
 String un=(String)session.getAttribute("username");
 if(un==null||un.equals(""))
 {
@@ -14,7 +14,7 @@ if(un==null||un.equals(""))
 	rd.forward(request,response);
 	
 }
-%>
+%> --%>
 
 <title>Home</title>
 <style>
@@ -195,13 +195,12 @@ animation-fill-mode : forwards;
 <div class="middle_text"><span> is Open.</span></div>
 </div>
 <div class="last_text">
-<span>Hi, <%=un %></span>
+<span>Hi, <%-- <%=un %> --%></span>
 </div>
 </div>
 <div class="animate"><img src="short_logo.png" alt="image not loading"></div>
 </div>
 <div class="header">
-<figure><img id="image" src="short_logo.png" alt="Image Load Error" title="Logo"></figure>
 <div class="header-options">
 <a href="">Home</a>
 <a href="">About</a>
