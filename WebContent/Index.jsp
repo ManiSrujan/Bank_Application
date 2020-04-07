@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -160,7 +162,7 @@ font-size : 23px;
 </head>
 <body>
 <div class="header">
-<img src="../image.png" alt="Image Load Error" title="Logo">
+<img src="image.png" alt="Image Load Error" title="Logo">
 <div class="header-options">
 <a href="">Home</a>
 <a href="">About</a>

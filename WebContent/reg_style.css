@@ -7,7 +7,7 @@ body{
     position : absolute;
     top : 0;
     left : 0;
-    background-image: url("../seamless.jpg");
+    background-image: url("seamless.jpg");
     height : 100%;
     width :100%;
     filter: opacity(0.1);
