@@ -5,6 +5,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>KL Bank</title>
+<%-- 
+String un=(String)session.getAttribute("username");
+if(un==null||un.equals(""))
+{
+	un="";
+}
+--%>
 <style>
 body{
 background-color : #FFFFFF;
@@ -176,7 +183,7 @@ font-size : 23px;
 <div class="frame1-login">
 <form name="login" action="">
 <span>Username</span>
-<input type="text" name="uname" id="uname">
+<input type="text" name="uname" id="uname" value=<%--<%=un %>--%>>
 <span>Password</span>
 <input type="password" name="pass" id="pass">
 <button>Login</button>
