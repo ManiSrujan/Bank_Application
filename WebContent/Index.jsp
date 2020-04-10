@@ -8,6 +8,13 @@
     <title>KL Bank</title>
     <link rel="stylesheet" href="main.css">
 </head>
+<% 
+String un=(String)session.getAttribute("username");
+if(un==null||un.equals(""))
+{
+	un="";
+}
+%>
 <body>
         <header>
             <img class="desktop" src="image.png" alt="Image Load Error" title="Logo">
@@ -24,10 +31,10 @@
             <p>We Strive For Excellence</p>
         </div>
         <div class="login">
-            <form class="login-form" name="login" action="">
+            <form class="login-form" name="login" action="" autocomplete="off">
                 <span>
                     <p>Username</p>
-                    <input type="text" name="uname" id="uname">
+                    <input type="text" name="uname" id="uname" value=<%=un %>>
                 </span>
                 <span>
                     <p>Password</p>
