@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Tranfer Funds</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.header-options{
+position : absolute;
+top : 3%;
+left : 60%;
+}
+.header a{
+position : relative;
+color : #3a4a54;
+left : 20px;
+margin-left : 20px;
+padding : 5px 0px;
+text-decoration : none;
+text-transform : uppercase;
+font-size : 15px;
+font-weight : bold;
+font-family : Arial;
+letter-spacing: 0.12em;
+}
+.header a:after{
+position : absolute;
+bottom : 0;
+left : 50%;
+width : 0;
+content : "";
+height : 3.5px;
+background : #e8a348;
+transition : width 0.3s,left 0.3s;
+}
+.header a:hover:after{
+width : 100%;
+left : 0;
+}
+.frame1{
+position : absolute;
+top : 0;
+left : 0px;
+height : 100%;
+width : 100%;
+background : #FFFFFF;
+}
+.frame-left{
+position : fixed;
+left : 0;
+top : 0px;
+width : 35%;
+height : 100%;
+background : #3B314E;
+}
+.frame-left ul{
+position : relative;
+top : 100px;
+list-style : none;
+}
+.frame-left li{
+position : relative;
+font-family : Arial;
+font-weight : bold;
+text-align : right;	
+top : 60px;
+right : 15%;
+margin-bottom : 40px;
+letter-spacing : 0.15em;
+line-height : 4em;
+opacity : 0.2;
+}
+.frame-left a{
+text-decoration : none;
+position : relative;
+font-size : 15px;
+color : #FFFFFF;
+text-transform : uppercase;
+}
+.frame-left li:after{
+position : absolute;
+content : "";
+bottom : 10px;	
+right : 0;
+width : 80%;
+height : 2px;
+background : #FFFFFF;
+}
+#active{
+opacity:0.9;
+}
+#active:after{
+opacity : 0.6;
+}
+#notactive:after{
+opacity : 0.3;
+}
+#notactive:hover{
+opacity : 0.4;
+}
+.frame-right{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    position: absolute;
+    top : 50px;
+    left: 35%;
+    width: 65vw;
+    height: 93vh;
+}
+.frame-right .transfer{
+    position: relative;
+    top: 100px;
+    width: 50%;
+    height: 400px;
+}
+.frame-right div:nth-child(2)::after{
+    content: '';
+    display: block;
+    position: relative;
+    top : 100px;
+    width: 1px;
+    height: 400px;
+    background-color: black;
+    opacity: 0.4;
+}
+.frame-right form{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.frame-right h2{
+    position: relative;
+    top : 0px;
+    font-size: 30px;
+    color: #3a4a54;
+    text-decoration: underline;
+    margin-left: -30px;
+    margin-bottom: 45px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+}
+.frame-right input{
+    padding-left: 10px;
+    margin-bottom: 30px;
+    border: 0px;
+    border-bottom: 1px solid #3a4a54;
+    font-size: 25px;
+    outline: none;
+    width: 100%;
+}
+.frame-right .balance{
+    position: relative;
+    top: 100px;
+    width: 50%;
+    height: 400px;
+}
+.frame-right img{
+    width: 60px;
+    height: 60px;
+    margin-top: -37px;
+    margin-bottom: 30px;
+}
+.frame-right button{
+    height : 70px;
+    width : 200px;
+    padding : 10px 10px;
+    margin-top: 10px;
+    background : none;
+    font-size : 25px;
+    letter-spacing : 0.10em;
+    border : 2px solid #e8a348;
+    color : #3a4a54;
+    transition : background 0.3s,color 0.3s;
+    border-radius : 5px;
+}
+.frame-right button:hover{
+    border: 1px solid white;
+    background : #e8a348;
+    color : white;
+    cursor : pointer;
+}
+</style>
+</head>
+<body>
+<div class="frame1">
+<div class="frame-left">
+<ul>
+<li id="notactive"><a href="">Welcome</a></li>
+<li id="active"><a href="">Transfer Funds</a></li>
+<li id="notactive"><a href="">Withdraw</a></li>
+<li id="notactive"><a href="">Deposit</a></li>
+<li id="notactive"><a href="">Transaction History</a></li>
+</ul>
+</div>
+<div class="frame-right">
+<div class="transfer">
+    <!-- Place transfer form action -->
+    <form action="">
+        <span>
+            <h2>Transfer Funds</h2>
+        </span>
+        <span>
+            <input type="text" placeholder="Account Number">
+        </span>
+        <span>
+            <input type="text" placeholder="Amount">
+        </span>
+        <button>Transfer</button>
+    </form>
+</div>
+<div></div>
+<div class="balance">
+     <!-- Place transfer form action -->
+     <form action="">
+        <span>
+            <h2>Check Balance</h2>
+        </span>
+        <span>
+            <img src="../money-bag.png" alt="">
+        </span>
+        <span>
+            <input type="text" placeholder="Amount">
+        </span>
+        <button>Check</button>
+    </form>
+</div>
+</div>
+<div class="animate"><img src="short_logo.png" alt="image not loading"></div>
+</div>
+<div class="header">
+<div class="header-options">
+<a href="">Home</a>
+<a href="">About</a>
+<a href="">Our Services</a>
+<a href="">Contact Us</a>
+<a href="">LogOut</a>
+</div>
+</div>
+</body>
+</html>
