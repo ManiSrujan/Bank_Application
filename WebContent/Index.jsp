@@ -31,14 +31,14 @@ if(un==null||un.equals(""))
             <p>We Strive For Excellence</p>
         </div>
         <div class="login">
-            <form class="login-form" name="login" action="" autocomplete="off">
+            <form class="login-form" name="login" action="LoginServlet.jsp" autocomplete="off">
                 <span>
                     <p>Username</p>
                     <input type="text" name="uname" id="uname" value=<%=un %>>
                 </span>
                 <span>
                     <p>Password</p>
-                    <input type="password" name="pass" id="pass">
+                    <input type="password" name="password" id="pass">
                 </span>
                 <button>Login</button>
             </form>

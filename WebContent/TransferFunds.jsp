@@ -6,6 +6,16 @@
 <meta charset="ISO-8859-1">
 <title>Tranfer Funds</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<%-- <%
+String un=(String)session.getAttribute("username");
+if(un==null||un.equals(""))
+{
+	
+	RequestDispatcher rd=request.getRequestDispatcher("Index.jsp");
+	rd.forward(request,response);
+	
+}
+%> --%>
 <style>
 *{
     padding: 0;
@@ -189,6 +199,24 @@ opacity : 0.4;
     cursor : pointer;
 }
 </style>
+<script>
+function ex()
+{
+	var x=new XMLHttpRequest();
+	x.open("POST","BalanceServlet.jsp","True");
+	x.onreadystatechange= function(){
+		if(this.readyState==4 && this.status==200)
+			document.getElementById("bal").innerHTML=this.responseText;
+	}
+	x.send();
+	
+}
+function dis()
+{
+	document.getElementById("submitbutton").style.display="none";
+	document.getElementById("wait").innerHTML="Please wait, your transaction is being processed.";
+	}
+</script>
 </head>
 <body>
 <div class="frame1">
@@ -204,18 +232,19 @@ opacity : 0.4;
 <div class="frame-right">
 <div class="transfer">
     <!-- Place transfer form action -->
-    <form action="">
+    <form action="CheckServlet.jsp" id="f1">
         <span>
             <h2>Transfer Funds</h2>
         </span>
         <span>
-            <input type="text" placeholder="Account Number">
+            <input type="text" placeholder="Account Number" name="accnum">
         </span>
         <span>
-            <input type="text" placeholder="Amount">
+            <input type="text" placeholder="Amount" name="amt">
         </span>
-        <button>Transfer</button>
-    </form>
+        <button onclick="document.getElementById('f1').submit();dis();" id="submitbutton()">Transfer</button>
+        <span id="wait"></span>
+     </form>
 </div>
 <div></div>
 <div class="balance">
@@ -228,9 +257,9 @@ opacity : 0.4;
             <img src="money-bag.png" alt="">
         </span>
         <span>
-            <input type="text" placeholder="Amount">
+            <input type="text" placeholder="Amount" id="bal">
         </span>
-        <button>Check</button>
+        <button onclick="return ex()">Check</button>
     </form>
 </div>
 </div>
