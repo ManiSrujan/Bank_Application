@@ -24,7 +24,7 @@ background : #FFFFFF;
 .header-options{
 position : absolute;
 top : 3%;
-left : 60%;
+left : 65%;
 }
 .header a{
 position : relative;
@@ -182,10 +182,10 @@ animation-fill-mode : forwards;
 <div class="frame1">
 <div class="frame-left">
 <ul>
-<li id="active"><a href="">Welcome</a></li>
+<li id="active"><a href="HomePage.jsp">Welcome</a></li>
 <li id="notactive"><a href="TransferFunds.jsp">Transfer Funds</a></li>
-<li id="notactive"><a href="">Withdraw</a></li>
-<li id="notactive"><a href="">Deposit</a></li>
+<li id="notactive"><a href="Withdraw.jsp">Withdraw</a></li>
+<li id="notactive"><a href="Deposit.jsp">Deposit</a></li>
 <li id="notactive"><a href="">Transaction History</a></li>
 </ul>
 </div>
@@ -202,7 +202,6 @@ animation-fill-mode : forwards;
 </div>
 <div class="header">
 <div class="header-options">
-<a href="">Home</a>
 <a href="">About</a>
 <a href="">Our Services</a>
 <a href="">Contact Us</a>

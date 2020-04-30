@@ -34,7 +34,7 @@ try
 	else
 	{
 		out.println("<script language='javascript'>alert('Recepient Account Not Found! Please Try Again!');</script>");
-		RequestDispatcher rd=request.getRequestDispatcher("transferfunds.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("TransferFunds.jsp");
 		rd.include(request, response);
 	}
 	con.close();
