@@ -25,7 +25,7 @@ if(un==null||un.equals(""))
 .header-options{
 position : absolute;
 top : 3%;
-left : 60%;
+left : 65%;
 }
 .header a{
 position : relative;
@@ -267,7 +267,6 @@ function dis()
 </div>
 <div class="header">
 <div class="header-options">
-<a href="">Home</a>
 <a href="">About</a>
 <a href="">Our Services</a>
 <a href="">Contact Us</a>
