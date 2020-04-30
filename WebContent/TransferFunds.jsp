@@ -222,10 +222,10 @@ function dis()
 <div class="frame1">
 <div class="frame-left">
 <ul>
-<li id="notactive"><a href="">Welcome</a></li>
-<li id="active"><a href="">Transfer Funds</a></li>
-<li id="notactive"><a href="">Withdraw</a></li>
-<li id="notactive"><a href="">Deposit</a></li>
+<li id="notactive"><a href="HomePage.jsp">Welcome</a></li>
+<li id="active"><a href="TransferFunds.jsp">Transfer Funds</a></li>
+<li id="notactive"><a href="Withdraw.jsp">Withdraw</a></li>
+<li id="notactive"><a href="Deposit.jsp">Deposit</a></li>
 <li id="notactive"><a href="">Transaction History</a></li>
 </ul>
 </div>

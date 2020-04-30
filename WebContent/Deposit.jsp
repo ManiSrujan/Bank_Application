@@ -15,7 +15,7 @@
 .header-options{
 position : absolute;
 top : 3%;
-left : 60%;
+left : 65%;
 }
 .header a{
 position : relative;
@@ -216,24 +216,24 @@ function dis()
 <div class="frame1">
 <div class="frame-left">
 <ul>
-<li id="notactive"><a href="">Welcome</a></li>
-<li id="notactive"><a href="">Transfer Funds</a></li>
-<li id="notactive"><a href="">Withdraw</a></li>
-<li id="active"><a href="">Deposit</a></li>
+<li id="notactive"><a href="HomePage.jsp">Welcome</a></li>
+<li id="notactive"><a href="TransferFunds.jsp">Transfer Funds</a></li>
+<li id="notactive"><a href="Withdraw.jsp">Withdraw</a></li>
+<li id="active"><a href="Deposit.jsp">Deposit</a></li>
 <li id="notactive"><a href="">Transaction History</a></li>
 </ul>
 </div>
 <div class="frame-right">
 <div class="Deposit">
     <!-- Place Deposit form action -->
-    <form action="" id="f1">
+    <form action="DepositServlet.jsp" id="f1" method="post">
         <span>
             <h2>Deposit</h2>
         </span>
         <span>
-            <input type="text" placeholder="Amount" name="amt">
+            <input type="text" placeholder="Amount" name="amt" autocomplete="off">
         </span>
-        <button onclick="document.getElementById('f1').submit();dis();" id="submitbutton()">Deposit</button>
+        <button onclick="document.getElementById('f1').submit();dis();" id="submitbutton">Deposit</button>
         <span id="wait"></span>
      </form>
 </div>
@@ -258,7 +258,6 @@ function dis()
 </div>
 <div class="header">
 <div class="header-options">
-<a href="">Home</a>
 <a href="">About</a>
 <a href="">Our Services</a>
 <a href="">Contact Us</a>
