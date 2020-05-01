@@ -78,7 +78,7 @@ var s=document.getElementById("ph").value;
                 <input type="radio" name="accept" required/>
                 <p>I accept the <a href="#" style="font-weight:bold;color:white;">Terms and Conditions</a> of your site.</p>
                 <button>Register</button>
-                <p id="login_link">Already a member?<a href="Index.html">Sign in!</a></p>
+                <p id="login_link">Already a member?<a href="Index.jsp">Sign in!</a></p>
             </form>
         </div>
     </div>

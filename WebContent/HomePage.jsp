@@ -8,7 +8,7 @@
 <%-- <%
 String un=(String)session.getAttribute("username");
 if(un==null||un.equals(""))
-{
+{http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1403812
 	
 	RequestDispatcher rd=request.getRequestDispatcher("Index.jsp");
 	rd.forward(request,response);
