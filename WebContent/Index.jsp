@@ -23,7 +23,7 @@ if(un==null||un.equals(""))
                 <li><a href="#">About</a></li>
                 <li><a href="#">Our Services</a></li>
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Sign Up</a></li>
+                <li><a href="Registration.jsp">Sign Up</a></li>
             </ul>
         </header>
         <div class="statement">
