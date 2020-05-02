@@ -220,7 +220,7 @@ animation-fill-mode : forwards;
 <li id="notactive"><a href="TransferFunds.jsp">Transfer Funds</a></li>
 <li id="notactive"><a href="Withdraw.jsp">Withdraw</a></li>
 <li id="notactive"><a href="Deposit.jsp">Deposit</a></li>
-<li id="notactive"><a href="">Transaction History</a></li>
+<li id="notactive"><a href="TransactionHistory.jsp">Transaction History</a></li>
 </ul>
 </div>
 <div class="frame-right">
