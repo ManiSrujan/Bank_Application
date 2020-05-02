@@ -91,7 +91,7 @@ public class MailExp extends HttpServlet {
 		   
 
 		Cookie ck[]=request.getCookies();
-		String z="",amt="",rec="";
+		String z="",amt="",rec="",otp="none",status="";
 		String msg ="Error";
 		for(int i=0;i<ck.length;i++)
 		{
@@ -101,18 +101,22 @@ public class MailExp extends HttpServlet {
 				rec=ck[i].getValue();
 			if(ck[i].getName().equals("amt"))
 				amt=ck[i].getValue();
+			if(ck[i].getName().equals("auth"))
+				otp=ck[i].getValue();
+			if(ck[i].getName().equals("valid"))
+				status=ck[i].getValue();
 		}
 
 		if(z.equals("transfer"))
-		    msg="A transfer of Rs."+amt+" has been done to user "+rec+" from your account. Have a nice day "+un;
+		    msg="A transfer request of Rs."+amt+" has been initiated to user "+rec+" from your account.\n"+"Request Status: "+status+" \nHave a nice day "+un;
 		if(z.equals("withdraw"))
-			msg="A withdraw request of Rs. "+amt+" has been made by you. Use the Code: "+sb.toString()+" at your nearest ATM to withdraw your amount. Have a nice day "+un;
+			msg="A withdraw request of Rs. "+amt+" has been made by you. Use the Code: "+sb.toString()+" at your nearest ATM to withdraw your amount.\nHave a nice day "+un;
 		if(z.equals("deposit"))
-			msg="A deposit request of Rs. "+amt+" has been made by you. Use the Code: "+sb.toString()+" at your nearest ATM to deposit the amount into your account. Have a nice day "+un;
+			msg="A deposit request of Rs. "+amt+" has been made by you. Use the Code: "+sb.toString()+" at your nearest ATM to deposit the amount into your account. \nHave a nice day "+un;
 		if(z.equals("Checkbook"))
-			msg="Dear "+un+", you have made a request for checkbook for your account "+accnum+". It will be delivered to the address "+addr+" shortly. Have a nice day!";
+			msg="Dear "+un+", you have made a request for checkbook for your account "+accnum+". It will be delivered to the address "+addr+" shortly. \nHave a nice day!";
 		if(z.equals("Card"))
-			msg="Dear "+un+", you have made a request for an ATM Card for your account "+accnum+". It will be delivered to the address "+addr+" shortly. Have a nice day!";
+			msg="Dear "+un+", you have made a request for an ATM Card for your account "+accnum+". It will be delivered to the address "+addr+" shortly. \nHave a nice day!";
 		if(z.equals("Loan"))
 		{
 			Cookie ckm[]=request.getCookies();
@@ -133,7 +137,11 @@ public class MailExp extends HttpServlet {
 					toti=ckm[i].getValue();
 				
 			}
-			msg="Dear "+un+", you have applied for a loan with the plan:\n"+"Loan Amount:"+p+"\nTime:"+t+"\nRate Of Interest:"+r+"\nfor this, you'll have to pay\na Monthly of:"+m+"\nTotal Payment:"+total+"\nTotal Interest:"+toti+"\n Your loan terms are finalized and an agreement will be sent to you shortly. Please attach the necessary documents to the agreement and submit it at your nearest branch of EP Bank. Hope you have a nice day!";
+			msg="Dear "+un+", you have applied for a loan with the plan:\n"+"Loan Amount:"+p+"\nTime:"+t+"\nRate Of Interest:"+r+"\nfor this, you'll have to pay\na Monthly of:"+m+"\nTotal Payment:"+total+"\nTotal Interest:"+toti+"\n Your loan terms are finalized and an agreement will be sent to you shortly. Please attach the necessary documents to the agreement and submit it at your nearest branch of KL Bank. \nHope you have a nice day!";
+		}
+		if(!(otp.equals("none")))
+		{
+			msg="The OTP for you transaction of amount transfer to account xxxxxx"+rec.substring(6)+" is "+otp+" . If you haven't requested this OTP, please contact you nearest branch of KL Bank.";
 		}
 		
 		final String from = "testingepq8@gmail.com";
@@ -165,10 +173,15 @@ public class MailExp extends HttpServlet {
 			Transport.send(message);
 			System.out.println("Mail sent successfully");
 			
-			
+			if(!(otp.equals("none")))
+			{
+				response.sendRedirect("confirm.jsp");
+			}
+			else {
 			out.println("<script language='javascript'>alert('Transaction Successful!');</script>");
-			RequestDispatcher rd=request.getRequestDispatcher("account_home.jsp");
+			RequestDispatcher rd=request.getRequestDispatcher("HomePage.jsp");
 			rd.include(request,response);
+			}
 		}
 		catch(MessagingException e) {
 			System.out.println(e);

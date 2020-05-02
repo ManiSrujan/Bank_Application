@@ -16,7 +16,7 @@ PreparedStatement ps=null;;
 Connection con=null;
 String s="";
 Cookie ck[]=request.getCookies();
-String z="",amt="Null",rec="Null",status="Successful";
+String z="",amt="Null",rec="Self",status="Successful";
 for(int i=0;i<ck.length;i++)
 {
 	if(ck[i].getName().equals("mail"))
