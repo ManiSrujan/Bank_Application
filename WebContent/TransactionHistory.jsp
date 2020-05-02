@@ -231,7 +231,7 @@ function ex2()
 		for(var i=0;z<d.length;i++)
 			{
 			var row=document.getElementById("table").insertRow(i+1);
-	        for(var j=0;j<5;j++)
+	        for(var j=0;j<6;j++)
 				{
 				if(d[++z]!=null)
 				row.insertCell(j).innerHTML=d[z-1];
