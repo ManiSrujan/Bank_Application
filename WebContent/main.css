@@ -29,7 +29,7 @@ header img.desktop{
 }
 header ul{
     display: flex;
-    width: 80vh;
+    width: 100vh;
     height: 100%;
     list-style-type: none;
     justify-content: space-around;
@@ -67,18 +67,18 @@ left : 0;
     grid-area : statement;
     flex-direction: column;
     justify-content: center;
-    align-items: left;
+    align-items: center;
 }
 .statement img.phone{
     height: 15vh;
 }
-.statement p,ul{
-    font-size : 10px;
+.statement p{
+    font-size : 15px;
     color : #e8a348;
     letter-spacing: 0.10em;
-    //text-transform : uppercase;
-    //text-decoration : underline #3a4a54;
-    //text-underline-position: under;
+    text-transform : uppercase;
+    text-decoration : underline #3a4a54;
+    text-underline-position: under;
 }
 .login{
     grid-area: login;
@@ -244,13 +244,8 @@ footer div p:nth-child(2){
 
 @media only screen and (min-width : 1260px){
     .statement p{
-        font-size : 23px;
-		padding-left:20px;
+        font-size : 40px;
     }
-	.statement ul{
-		font-size : 23px;
-		padding-left:100px;
-	}
     footer div p:nth-child(1){
         font-size: 30px;
     }
