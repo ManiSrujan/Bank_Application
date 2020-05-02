@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Withdraw</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Transaction History</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
 <style>
 *{
@@ -135,91 +135,59 @@ opacity : 0.3;
 opacity : 0.4;
 }
 .frame-right{
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    position: absolute;
-    top : 50px;
-    left: 35%;
-    width: 65vw;
-    height: 93vh;
+	position : absolute;
+	top : 15%;
+	left : 40%;
+    height: 70%;
+    width: 60%;
 }
-.frame-right .Withdraw{
-    position: relative;
-    top: 100px;
-    width: 50%;
-    height: 400px;
+.frame-right .dates{
+	display : flex;
+    width: 60%;
+    justify-content: flex-start;
 }
-.frame-right div:nth-child(2)::after{
-    content: '';
-    display: block;
-    position: relative;
-    top : 100px;
-    width: 1px;
-    height: 400px;
-    background-color: black;
-    opacity: 0.4;
+.frame-right span{
+    border: 1px solid black;
+    padding: 5px 0 5px 10px;
+    margin-right : 50px;
+    width: 40%;
 }
-.frame-right form{
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.frame-right h2{
-    position: relative;
-    top : 0px;
-    font-size: 30px;
-    color: #3a4a54;
-    text-decoration: underline;
-    margin-left: -30px;
-    margin-bottom: 45px;
-    letter-spacing: 2px;
-    opacity: 0.8;
-}
-.frame-right input{
-    padding-left: 10px;
-    margin-bottom: 30px;
-    border: 0px;
-    border-bottom: 1px solid #3a4a54;
-    font-size: 25px;
+.frame-right input[type="date"]{
+    border : 0px;
     outline: none;
-    width: 100%;
+    text-align: end;
 }
-/* overriding input styles for withdraw */
-.frame-right .Withdraw span:nth-child(1){
-	margin-bottom : 53px;
+.frame-right p{
+    display: inline;
+    font-weight : bold;
+    margin-right: 10px;
 }
-.frame-right .balance{
-    position: relative;
-    top: 100px;
-    width: 50%;
-    height: 400px;
+.frame-right .transaction_table{
+    margin-top: 40px;
+    width: 90%;
+    height: 100%;
 }
-.frame-right img{
-    width: 60px;
-    height: 60px;
-    margin-top: -37px;
-    margin-bottom: 30px;
+.frame-right .transaction_table table{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-collapse: collapse;
+    width : 100%;
+    overflow-y : auto;
+    margin-bottom : 100px;
 }
-.frame-right button{
-    height : 70px;
-    width : 200px;
-    padding : 10px 10px;
-    margin-top: 10px;
-    background : none;
-    font-size : 25px;
-    letter-spacing : 0.10em;
-    border : 2px solid #e8a348;
-    color : #3a4a54;
-    transition : background 0.3s,color 0.3s;
-    border-radius : 5px;
+.frame-right .transaction_table table,th{
+    padding: 10px;
+    border: 1px solid black;
 }
-.frame-right button:hover{
-    border: 1px solid white;
-    background : #e8a348;
-    color : white;
-    cursor : pointer;
+.frame-right .transaction_table th{
+    width: 10px;
+    letter-spacing: 1px;
+    font-weight : normal;
+    background-color: #DADADA;
+}
+.frame-right .transaction_table td{
+    padding: 10px;
+    text-align: center;
+    width: 10px;
 }
 </style>
 <script>
@@ -247,41 +215,52 @@ function dis()
 <ul>
 <li id="notactive"><a href="HomePage.jsp">Welcome</a></li>
 <li id="notactive"><a href="TransferFunds.jsp">Transfer Funds</a></li>
-<li id="active"><a href="Withdraw.jsp">Withdraw</a></li>
+<li id="notactive"><a href="Withdraw.jsp">Withdraw</a></li>
 <li id="notactive"><a href="Deposit.jsp">Deposit</a></li>
-<li id="notactive"><a href="">Transaction History</a></li>
+<li id="active"><a href="">Transaction History</a></li>
 </ul>
 </div>
 <div class="frame-right">
-<div class="Withdraw">
-    <!-- Place Withdraw form action -->
-    <form action="CheckBalServlet.jsp" id="f1" method="post">
-        <span>
-            <h2>Withdraw</h2>
-        </span>
-        <span>
-            <input type="text" placeholder="Amount" name="amt">
-        </span>
-        <button onclick="document.getElementById('f1').submit();dis();" id="submitbutton">Withdraw</button>
-        <span id="wait"></span>
-     </form>
+<div class="dates">
+	<span>
+		<p>From : </p>
+		<input type="date" name="from">
+	</span>
+	<span>
+		<p>To : </p>
+		<input type="date" name="to">
+	</span>
 </div>
-<div></div>
-<div class="balance">
-     <!-- Place balance form action -->
-     <form action="">
-        <span>
-            <h2>Check Balance</h2>
-        </span>
-        <span>
-            <img src="money-bag.png" alt="">
-        </span>
-        <span>
-            <input type="text" placeholder="Amount" id="bal">
-        </span>
-        <button onclick="return ex()">Check</button>
-    </form>
+
+<!-- Table for transaction history goes here-->
+<div class="transaction_table">
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Account-ID</th>
+            <th>Method</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+        <!-- sample data starts-->
+        <tr>
+            <td>23-03-2020</td>
+            <td>1236547891</td>
+            <td>Deposit</td>
+            <td>₹ 2000</td>
+            <td>Successful</td>
+        </tr>
+        <tr>
+            <td>23-03-2020</td>
+            <td>1236547891</td>
+            <td>Withdraw</td>
+            <td>₹ 2000</td>
+            <td>Successful</td>
+        </tr>
+        <!-- sample data ends-->
+    </table>
 </div>
+
 </div>
 </div>
 <div class="header">
@@ -303,6 +282,7 @@ function dis()
 <div>
     <a href="">LogOut</a>
 </div>
+
 </div>
 </div>
 </body>
