@@ -300,7 +300,7 @@ function dis()
     </ul>
 </div>
 <div>
-    <a href="">Contact Us</a>
+    <a href="ContactUs.jsp" target="_blank">Contact Us</a>
 </div>
 <div>
     <a href="LogoutServlet.jsp">LogOut</a>

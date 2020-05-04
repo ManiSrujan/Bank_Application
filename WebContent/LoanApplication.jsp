@@ -293,7 +293,7 @@ function calculate()
 <div class="header-options">
 <a href="">About</a>
 <a href="">Our Services</a>
-<a href="">Contact Us</a>
+<a href="ContactUs.jsp" target="_blank">Contact Us</a>
 <a href="LogoutServlet.jsp">LogOut</a>
 </div>
 </div>

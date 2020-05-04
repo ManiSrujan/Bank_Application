@@ -9,7 +9,7 @@ ResultSet rs=null;
 try{
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");
-	ps=con.prepareStatement("select * from trans where dot >= to_date(?,'yyyy-mm-dd') and dot <= to_date(?,'yyyy-mm-dd') and from_user=?");
+	ps=con.prepareStatement("select * from trans where dot >= to_date(?,'yyyy-mm-dd') and dot <= to_date(?,'yyyy-mm-dd') and from_user=? ORDER BY dot");
 	ps.setString(1,start);
 	ps.setString(2,stop);
 	ps.setString(3,un);
