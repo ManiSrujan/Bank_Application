@@ -43,13 +43,13 @@ try
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");
 	st=con.createStatement();
-	s="select balance from bal_table where username='"+rec+"'";
+	s="select balance from bal_table where accnum='"+rec+"'";
 	int bal=0;
 	rs=st.executeQuery(s);
 	if(rs.next())
 		bal=Integer.parseInt(rs.getString("balance"));
 	bal=bal+amt;
-	s="update bal_table set balance='"+String.valueOf(bal)+"' where username='"+rec+"'";
+	s="update bal_table set balance='"+String.valueOf(bal)+"' where accnum='"+rec+"'";
 	st.executeUpdate(s);
 	
 	s="select balance from bal_table where username='"+user+"'";

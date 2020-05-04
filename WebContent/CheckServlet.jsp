@@ -22,8 +22,7 @@ try
 	ResultSet rs=ps.executeQuery();
 	if(rs.next())
 	{ 
-		String un=rs.getString("username");
-		Cookie ck=new Cookie("temp",un);
+		Cookie ck=new Cookie("temp",accnum);
 		Cookie ck1=new Cookie("amt",amt);
 		ck.setMaxAge(90);
 		ck1.setMaxAge(90);

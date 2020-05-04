@@ -213,6 +213,12 @@ opacity : 0.4;
     margin-left: 90px;
 }
 </style>
+<script>
+function dis()
+{
+	document.getElementById("submitbutton").style.display="none";
+	document.getElementById("wait").innerHTML="Please wait, your request is being processed.";
+	}</script>
 </head>
 <body>
 <div class="frame1">

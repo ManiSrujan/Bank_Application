@@ -12,7 +12,8 @@
 <%
 String un=(String)session.getAttribute("username");
 String pwd=(String)session.getAttribute("password");
-PreparedStatement ps=null;;
+Statement st=null;
+PreparedStatement ps=null;
 Connection con=null;
 String s="";
 Cookie ck[]=request.getCookies();
@@ -35,15 +36,23 @@ java.sql.Date sdate=new java.sql.Date(date.getTime());
 try{
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");
-	ps=con.prepareStatement("insert into trans values(?,?,?,?,?,?,?)");
-		ps.setString(1,un);
-		ps.setString(2,rec);
-		ps.setString(3,date.toString());
-		ps.setString(4,z);
-		ps.setString(5,amt);
-		ps.setDate(6,sdate);
-		ps.setString(7,status);
+	st=con.createStatement();
+	if(rec.equals("Self"))
+	{
+	s="select accnum from bal_table where username='"+un+"'";
+	ResultSet rs=st.executeQuery(s);
+	rec=rs.getString("accnum");
+	}
+	else{
+		ps=con.prepareStatement("insert into trans values(?,?,?,?,?,?)");
+		ps.setString(1,rec);
+		ps.setString(2,date.toString());
+		ps.setString(3,z);
+		ps.setString(4,amt);
+		ps.setDate(5,sdate);
+		ps.setString(6,status);
 		ps.executeUpdate();
+	}
 	con.close();
 	response.sendRedirect("MailServlet");
 }
