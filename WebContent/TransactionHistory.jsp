@@ -214,14 +214,23 @@ opacity : 0.4;
 }
 </style>
 <script>
+var flag=false;
 function ex1()
 {
 var d=new Date();
 var temp=document.getElementById("st").max=d.getFullYear()+"-"+((d.getMonth()+1)<10?"0"+(d.getMonth()+1):(d.getMonth()+1))+"-"+(d.getDate()<10?"0"+d.getDate():d.getDate());
-temp=document.getElementById("s").max=d.getFullYear()+"-"+((d.getMonth()+1)<10?"0"+(d.getMonth()+1):(d.getMonth()+1))+"-"+((d.getDate()-1)<10?"0"+(d.getDate()-1):(d.getDate()-1));
+temp=document.getElementById("s").max=d.getFullYear()+"-"+((d.getMonth()+1)<10?"0"+(d.getMonth()+1):(d.getMonth()+1))+"-"+(d.getDate()<10?"0"+d.getDate():d.getDate());
 }
 function ex2()
-{
+{   var nr=document.getElementById("table").rows.length;
+	if(flag==false)
+	nr--;
+	if(flag==true){
+	for(var i=1;i<nr;i++)
+		document.getElementById("table").deleteRow(1);
+	
+	}
+	
 	var s=document.getElementById("s").value;
 	var st=document.getElementById("st").value;
 	var x=new XMLHttpRequest();
@@ -230,7 +239,6 @@ function ex2()
 	x.onload= function(){
 		if(x.readyState==4 && x.status==200)
 			d=x.responseText.split("@");
-		console.log(d[2]);
 		var z=0;
 		for(var i=0;z<d.length;i++)
 			{
@@ -244,6 +252,7 @@ function ex2()
 			}
 	};
 	x.send();
+	flag=true;
 	
 }
 </script>
