@@ -65,7 +65,6 @@ try{
 catch(Exception e)
 {
 	out.println(e);
-	response.sendRedirect("Registration.jsp");
 }
 %>
 </body>
