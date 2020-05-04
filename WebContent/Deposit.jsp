@@ -160,7 +160,7 @@ opacity : 0.4;
     background-color: black;
     opacity: 0.4;
 }
-.frame-right form{
+.frame-right form, .balance>div{
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -230,7 +230,7 @@ function ex()
 	x.open("POST","BalanceServlet.jsp","True");
 	x.onreadystatechange= function(){
 		if(this.readyState==4 && this.status==200)
-			document.getElementById("bal").innerHTML=this.responseText;
+			document.getElementById("bal").value=this.responseText;
 	}
 	x.send();
 	
@@ -270,7 +270,7 @@ function dis()
 <div></div>
 <div class="balance">
      <!-- Place balance form action -->
-     <form action="">
+     <div>
         <span>
             <h2>Check Balance</h2>
         </span>
@@ -281,7 +281,7 @@ function dis()
             <input type="text" placeholder="Amount" id="bal">
         </span>
         <button onclick="return ex()">Check</button>
-    </form>
+    </div>
 </div>
 </div>
 </div>
@@ -295,14 +295,14 @@ function dis()
     <ul class="hover_nav_content">
         <li><a href="LoanApplication.jsp">Loan Application</a></li>
         <li><a href="Credit.jsp">Credit</a></li>
-        <li><a href="CheckBook.jsp">Check Book</a></li>
+        <li><a href="CheckBook.jsp">Cheque Book</a></li>
     </ul>
 </div>
 <div>
     <a href="">Contact Us</a>
 </div>
 <div>
-    <a href="">LogOut</a>
+    <a href="LogoutServlet.jsp">LogOut</a>
 </div>
 </div>
 </div>

@@ -67,7 +67,7 @@ var s=document.getElementById("ph").value;
             <input type="text" name="address" form="reg" required/>
         </div>
         <div class="account">
-            <form name="registration" id="reg" action="Index.jsp" method="post" autocomplete="off">
+            <form name="registration" id="reg" action="RegisterServlet.jsp" method="post" autocomplete="off">
                 <p>Account Information</p>
                 <span>Username</span>
                 <input type="text" name="uname" id="un" onchange="return ex1()" required/>

@@ -52,7 +52,7 @@ try{
 	if(i>0)
 	{
 		session.setAttribute("username",username);
-		response.sendRedirect("Index.jsp.jsp");
+		response.sendRedirect("Index.jsp");
 	}
 	ps=con.prepareStatement("insert into bal_table values(?,?,'0')");
 	ps.setString(1,username);

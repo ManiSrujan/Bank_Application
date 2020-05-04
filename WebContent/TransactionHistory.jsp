@@ -210,6 +210,7 @@ opacity : 0.4;
     padding: 10px;
     text-align: center;
     width: 10px;
+    border-bottom: 1px solid black;
 }
 </style>
 <script>
@@ -229,6 +230,7 @@ function ex2()
 	x.onload= function(){
 		if(x.readyState==4 && x.status==200)
 			d=x.responseText.split("@");
+		console.log(d[2]);
 		var z=0;
 		for(var i=0;z<d.length;i++)
 			{
@@ -236,7 +238,7 @@ function ex2()
 	        for(var j=0;j<5;j++)
 				{
 				if(d[++z]!=null)
-				row.insertCell(j).innerHTML=d[z-1];
+				row.insertCell(j).innerHTML=d[z-1].toUpperCase();
 				}
 			
 			}
@@ -271,8 +273,8 @@ function ex2()
 </div>
 
 <!-- Table for transaction history goes here-->
-<div class="transaction_table" id="table">
-    <table>
+<div class="transaction_table" >
+    <table id="table">
         <tr>
             <th>Account ID</th>
             <th>Date & Time</th>
@@ -295,14 +297,14 @@ function ex2()
     <ul class="hover_nav_content">
         <li><a href="LoanApplication.jsp">Loan Application</a></li>
         <li><a href="Credit.jsp">Credit</a></li>
-        <li><a href="CheckBook.jsp">Check Book</a></li>
+        <li><a href="CheckBook.jsp">Cheque Book</a></li>
     </ul>
 </div>
 <div>
     <a href="">Contact Us</a>
 </div>
 <div>
-    <a href="">LogOut</a>
+    <a href="LogoutServlet.jsp">LogOut</a>
 </div>
 
 </div>

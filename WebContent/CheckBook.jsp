@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Apply Checkbook</title>
+<title>Apply Chequebook</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
 <style>
 *{
@@ -217,18 +217,18 @@ function dis()
 </div>
 <div class="frame-right">
     <div class="apply">
-        <h2>Check Book</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni nam praesentium incidunt eaque! Eos perspiciatis, dolores, delectus nisi doloribus voluptate</p>
+        <h2>Cheque Book</h2>
+        <p>Once you apply for a chequebook, you will receive it in <u>10-15</u> business days. Upon receiving the chequebook, it is your responsibility to read and understand all the terms and rules to be followed while using it. </p>
         <button id="submitbutton" onclick="location.href='RequestCheckbookServlet.jsp';dis();">Apply Now</button><br><span id="wait"></span>
     </div>
     <div class="benefits">
         <h3>Rules</h3>
         <div class="inner">
            <ol>
-               <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni baaaaka !</li>
-               <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni baaaaka !</li>
-               <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni baaaaka !</li>
-               <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni baaaaka !</li>
+               <li>The IFSC and MICR codes, predictably are a must on every cheque leaflet.</li>
+               <li>All cheques shall carry a standardised watermark, with the words "CTS-INDIA" which can be seen when held against any light source. This would make it difficult for any fraudster to photocopy or print an instrument.</li>
+               <li>No changes / corrections should be carried out on the cheques (other than for date validation purposes, if required). For any change in the payee's name, amount in figures or amount in words, etc., fresh cheque forms should be used by customers.</li>
+               <li>Payable at par at all branches of the KL Bank.</li>
            </ol>
         </div>
     </div>
@@ -245,14 +245,14 @@ function dis()
     <ul class="hover_nav_content">
         <li><a href="LoanApplication.jsp">Loan Application</a></li>
         <li><a href="Credit.jsp">Credit</a></li>
-        <li><a href="CheckBook.jsp">Check Book</a></li>
+        <li><a href="CheckBook.jsp">Cheque Book</a></li>
     </ul>
 </div>
 <div>
     <a href="">Contact Us</a>
 </div>
 <div>
-    <a href="">LogOut</a>
+    <a href="LogoutServlet.jsp">LogOut</a>
 </div>
 
 </div>
