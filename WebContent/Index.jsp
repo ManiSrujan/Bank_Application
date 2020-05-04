@@ -21,7 +21,7 @@ if(un==null||un.equals(""))
             <ul>
                 <li><a href="Index.jsp">Home</a></li>
                 <li><a href="About.jsp">About</a></li>
-                <li><a href="ContactUs.jsp">Contact Us</a></li>
+                <li><a href="ContactUs.jsp" target="_blank">Contact Us</a></li>
                 <li><a href="Registration.jsp">Sign Up</a></li>
             </ul>
         </header>

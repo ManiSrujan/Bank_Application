@@ -107,19 +107,19 @@
                 </tr>
                 <tr>
                     <td>Rohan B</td>
-                    <td>180031211</td>
+                    <td>180031230</td>
                     <td>rohan.buggaveeti@gmail.com</td>
-                    <td>Github</td>
+                    <td>github.com/rohan-buggaveeti</td>
                 </tr>
                 <tr>
                     <td>Thaneesh</td>
-                    <td>Id.No</td>
+                    <td>180031179</td>
                     <td>Email-Id</td>
                     <td>Github</td>
                 </tr>
                 <tr>
                     <td>Yashwanth</td>
-                    <td>Id.No</td>
+                    <td>180031200</td>
                     <td>Email-Id</td>
                     <td>Github</td>
                 </tr>
