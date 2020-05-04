@@ -52,7 +52,7 @@ try{
 	if(i>0)
 	{
 		session.setAttribute("username",username);
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("Index.jsp.jsp");
 	}
 	ps=con.prepareStatement("insert into bal_table values(?,?,'0')");
 	ps.setString(1,username);
@@ -65,7 +65,7 @@ try{
 catch(Exception e)
 {
 	out.println(e);
-	response.sendRedirect("register.jsp");
+	response.sendRedirect("Registration.jsp");
 }
 %>
 </body>
