@@ -16,7 +16,7 @@ PreparedStatement ps=null;;
 Connection con=null;
 String s="";
 Cookie ck[]=request.getCookies();
-String z="",amt="Null",rec="Null";
+String z="",amt="Null",rec="Self",status="Successful";
 for(int i=0;i<ck.length;i++)
 {
 	if(ck[i].getName().equals("mail"))
@@ -25,6 +25,8 @@ for(int i=0;i<ck.length;i++)
 		rec=ck[i].getValue();
 	if(ck[i].getName().equals("amt"))
 		amt=ck[i].getValue();
+	if(ck[i].getName().equals("vaild"))
+		status=ck[i].getValue();
 }
 java.util.Date date=new java.util.Date();  
 java.sql.Date sdate=new java.sql.Date(date.getTime());
@@ -33,32 +35,15 @@ java.sql.Date sdate=new java.sql.Date(date.getTime());
 try{
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");
-	ps=con.prepareStatement("insert into trans values(?,?,?,?,?)");
-	if(z.equals("transfer"))
-	{
+	ps=con.prepareStatement("insert into trans values(?,?,?,?,?,?,?)");
 		ps.setString(1,un);
 		ps.setString(2,rec);
 		ps.setString(3,date.toString());
-		ps.setString(4,amt);
-		ps.setDate(5,sdate);
-	}
-	else if(z.equals("withdraw"))
-	{
-		ps.setString(1,un);
-		ps.setString(2,un);
-		ps.setString(3,date.toString());
-		ps.setString(4,"-"+amt);
-		ps.setDate(5,sdate);
-	}
-	else
-	{
-		ps.setString(1,un);
-		ps.setString(2,un);
-		ps.setString(3,date.toString());
-		ps.setString(4,"+"+amt);
-		ps.setDate(5,sdate);
-	}
-	ps.executeUpdate();
+		ps.setString(4,z);
+		ps.setString(5,amt);
+		ps.setDate(6,sdate);
+		ps.setString(7,status);
+		ps.executeUpdate();
 	con.close();
 	response.sendRedirect("MailServlet");
 }

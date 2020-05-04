@@ -3,10 +3,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Deposit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Apply Checkbook</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 *{
     padding: 0;
@@ -136,111 +135,68 @@ opacity : 0.3;
 opacity : 0.4;
 }
 .frame-right{
+    position : absolute;
     font-family: 'Poppins', sans-serif;
-    display: flex;
-    position: absolute;
-    top : 50px;
-    left: 35%;
-    width: 65vw;
-    height: 93vh;
+	top : 15%;
+	left : 40%;
+    height: 70%;
+    width: 60%;
 }
-.frame-right .Deposit{
-    position: relative;
-    top: 100px;
-    width: 50%;
-    height: 400px;
+.apply{
+    height: 40vh;
+    width: 50vw;
 }
-.frame-right div:nth-child(2)::after{
-    content: '';
-    display: block;
-    position: relative;
-    top : 100px;
-    width: 1px;
-    height: 400px;
-    background-color: black;
-    opacity: 0.4;
-}
-.frame-right form{
-    display: flex;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.frame-right h2{
-    position: relative;
-    top : 0px;
+.apply h2{
     font-size: 30px;
-    color: #3a4a54;
-    text-decoration: underline;
-    margin-left: -30px;
-    margin-bottom: 45px;
+    font-weight: 600;
     letter-spacing: 2px;
-    opacity: 0.8;
+    color: #E8A348;
 }
-.frame-right input{
-    padding-left: 10px;
-    margin-bottom: 30px;
-    border: 0px;
-    border-bottom: 1px solid #3a4a54;
-    font-size: 25px;
-    outline: none;
-    width: 100%;
-}
-/* overriding input styles for Deposit */
-.frame-right .Deposit span:nth-child(1){
-	margin-bottom : 53px;
-}
-.frame-right .balance{
-    position: relative;
-    top: 100px;
-    width: 50%;
-    height: 400px;
-}
-.frame-right img{
-    width: 60px;
-    height: 60px;
-    margin-top: -37px;
-    margin-bottom: 30px;
-}
-.frame-right button{
-    height : 70px;
-    width : 200px;
-    padding : 10px 10px;
+.apply p{
     margin-top: 10px;
-    background : none;
-    font-size : 25px;
-    letter-spacing : 0.10em;
-    border : 2px solid #e8a348;
-    color : #3a4a54;
-    transition : background 0.3s,color 0.3s;
-    border-radius : 5px;
 }
-.frame-right button:hover{
-    border: 1px solid white;
-    background : #e8a348;
-    color : white;
-    cursor : pointer;
+.apply button{
+    margin-top: 60px;
+    width: 180px;
+    height: 50px;
+    font-size: 20px;
+    color: white;
+    background-color: #F5821F;
+    border: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.apply button:hover{
+	background-color : #e8a348;
+}
+.benefits::before{
+    display: block;
+    content: "";
+    height: 2px;
+    width: 55vw;
+    background-color: #707070;
+    opacity: 0.8;
+    margin-left: -30px;
+}
+.benefits{
+    height: 45vh;
+    width: 50vw;
+}
+.benefits>h3{
+    text-align: center;
+    color: #E8A348;
+    font-size: 25px;
+    font-weight: normal;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;;
+}
+.benefits ol{
+    font-size: 15px;
+    line-height: 50px;
+    color: #3B314E;
 }
 </style>
-<script>
-function ex()
-{
-	var x=new XMLHttpRequest();
-	x.open("POST","BalanceServlet.jsp","True");
-	x.onreadystatechange= function(){
-		if(this.readyState==4 && this.status==200)
-			document.getElementById("bal").innerHTML=this.responseText;
-	}
-	x.send();
-	
-}
-function dis()
-{
-	document.getElementById("submitbutton").style.display="none";
-	document.getElementById("wait").innerHTML="Please wait, your transaction is being processed.";
-	}
-</script>
 </head>
 <body>
 <div class="frame1">
@@ -249,49 +205,37 @@ function dis()
 <li id="notactive"><a href="HomePage.jsp">Welcome</a></li>
 <li id="notactive"><a href="TransferFunds.jsp">Transfer Funds</a></li>
 <li id="notactive"><a href="Withdraw.jsp">Withdraw</a></li>
-<li id="active"><a href="Deposit.jsp">Deposit</a></li>
+<li id="notactive"><a href="Deposit.jsp">Deposit</a></li>
 <li id="notactive"><a href="TransactionHistory.jsp">Transaction History</a></li>
 </ul>
 </div>
 <div class="frame-right">
-<div class="Deposit">
-    <!-- Place Deposit form action -->
-    <form action="DepositServlet.jsp" id="f1" method="post">
-        <span>
-            <h2>Deposit</h2>
-        </span>
-        <span>
-            <input type="text" placeholder="Amount" name="amt" autocomplete="off">
-        </span>
-        <button onclick="document.getElementById('f1').submit();dis();" id="submitbutton">Deposit</button>
-        <span id="wait"></span>
-     </form>
+    <div class="apply">
+        <h2>Check Book</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni nam praesentium incidunt eaque! Eos perspiciatis, dolores, delectus nisi doloribus voluptate</p>
+        <button>Apply Now</button>
+    </div>
+    <div class="benefits">
+        <h3>Rules</h3>
+        <div class="inner">
+           <ol>
+               <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni baaaaka !</li>
+               <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni baaaaka !</li>
+               <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni baaaaka !</li>
+               <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni baaaaka !</li>
+           </ol>
+        </div>
+    </div>
 </div>
-<div></div>
-<div class="balance">
-     <!-- Place balance form action -->
-     <form action="">
-        <span>
-            <h2>Check Balance</h2>
-        </span>
-        <span>
-            <img src="money-bag.png" alt="">
-        </span>
-        <span>
-            <input type="text" placeholder="Amount" id="bal">
-        </span>
-        <button onclick="return ex()">Check</button>
-    </form>
-</div>
-</div>
-</div>
+
+<!-- Header options -->
 <div class="header">
 <div class="header-options">
 <div>
     <a href="">About</a>
 </div>
 <div id="hover_nav">
-    <a href="">Our Services <i class="fa fa-caret-down"></i></a>
+    <a href="">Our Services</a>
     <ul class="hover_nav_content">
         <li><a href="LoanApplication.jsp">Loan Application</a></li>
         <li><a href="Credit.jsp">Credit</a></li>
@@ -304,6 +248,7 @@ function dis()
 <div>
     <a href="">LogOut</a>
 </div>
+
 </div>
 </div>
 </body>
