@@ -32,7 +32,7 @@ try
 	if(bal<=amt)
 	{
 		out.println("<script language='javascript'>alert('Insufficient Funds');</script>");
-		RequestDispatcher rd=request.getRequestDispatcher("withdraw.jsp");
+		RequestDispatcher rd=request.getRequestDispatcher("Withdraw.jsp");
 		rd.include(request,response);
 	}
 	else

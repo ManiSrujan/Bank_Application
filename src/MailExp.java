@@ -177,6 +177,30 @@ public class MailExp extends HttpServlet {
 			{
 				response.sendRedirect("confirm.jsp");
 			}
+			else if(z.equals("transfer"))
+			{
+				response.sendRedirect("TransferFunds.jsp");
+			}
+			else if(z.equals("withdraw"))
+			{
+				response.sendRedirect("Withdraw.jsp");
+			}
+			else if(z.equals("deposit"))
+			{
+				response.sendRedirect("Deposit.jsp");
+			}
+			else if(z.equals("Loan"))
+			{
+				response.sendRedirect("LoanApplication.jsp");
+			}
+			else if(z.equals("Checkbook"))
+			{
+				response.sendRedirect("CheckBook.jsp");
+			}
+			else if(z.equals("Card"))
+			{
+				response.sendRedirect("Credit.jsp");
+			}
 			else {
 			out.println("<script language='javascript'>alert('Transaction Successful!');</script>");
 			RequestDispatcher rd=request.getRequestDispatcher("HomePage.jsp");
