@@ -1,10 +1,16 @@
-
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>EP Bank</title>
+<%
+Cookie ck=new Cookie("valid","Cancelled");
+ck.setMaxAge(12);
+response.addCookie(ck);
+%>
 <script>
-var s=7;
+var s=60;
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 function ex()
 {
 s=s-1
@@ -18,12 +24,15 @@ setInterval(function(){ex();},1000)
 </script>
 </head>
 <body>
-
 <p align="center">Your Transaction is being processed.</p>
-<div style="position:absolute;top:35%;left:27%;font-size:25px;height:30%" align="center">
-<p>This page will be redirected in <span id="sec"></span> seconds.</p>
-<p>You can click the below button to CANCEL the transaction.</p>
-<button style="width:30%;height:25%;font-size:25px" onclick="location.href='transfer.jsp'">Cancel</button>
+<div style="position:absolute;top:27%;left:30%;font-size:25px;height:30%;width:40%" align="center">
+<p>Please enter the OTP sent to your registered email to complete your transaction.</p>
+<form action="OTPCheck.jsp" method="post">
+<input type="password" name="otp" id="otp" style="width:40%;height:20%;font-size:15px;"><br><br>
+<input type="submit" value="Submit OTP" style="width:30%;height:25%;font-size:25px">
+</form>
+<button style="position:relative;width:30%;height:25%;font-size:20px" onclick="location.href='TransferServlet.jsp'">Cancel Transaction</button>
+<p>This page will expire in <u><span id="sec"></span></u> seconds.</p>
 </div>
 </body>
 </html>

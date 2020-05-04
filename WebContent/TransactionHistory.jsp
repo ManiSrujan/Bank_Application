@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Transaction History</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 *{
     padding: 0;
@@ -52,6 +53,7 @@ left : 0;
     left:125px;
     display: none;
     border: 1px solid black;
+    background:white;
 }
 .hover_nav_content li{
     height: 100%;
@@ -141,9 +143,29 @@ opacity : 0.4;
     height: 70%;
     width: 60%;
 }
+.frame-right button{
+    height : auto;
+    width : 200px;
+    padding : 4px 4px;
+    margin-top: 10px;
+    background : none;
+    font-size : 20px;
+    letter-spacing : 0.10em;
+    border : 2px solid #e8a348;
+    color : #3a4a54;
+    transition : background 0.3s,color 0.3s;
+    border-radius : 5px;
+}
+.frame-right button:hover{
+    border: 2px solid white;
+    background : #e8a348;
+    color : white;
+    cursor : pointer;
+}
 .frame-right .dates{
 	display : flex;
     width: 60%;
+    height:auto;
     justify-content: flex-start;
 }
 .frame-right span{
@@ -191,25 +213,40 @@ opacity : 0.4;
 }
 </style>
 <script>
-function ex()
+function ex1()
 {
+var d=new Date();
+var temp=document.getElementById("st").max=d.getFullYear()+"-"+((d.getMonth()+1)<10?"0"+(d.getMonth()+1):(d.getMonth()+1))+"-"+(d.getDate()<10?"0"+d.getDate():d.getDate());
+temp=document.getElementById("s").max=d.getFullYear()+"-"+((d.getMonth()+1)<10?"0"+(d.getMonth()+1):(d.getMonth()+1))+"-"+((d.getDate()-1)<10?"0"+(d.getDate()-1):(d.getDate()-1));
+}
+function ex2()
+{
+	var s=document.getElementById("s").value;
+	var st=document.getElementById("st").value;
 	var x=new XMLHttpRequest();
-	x.open("POST","BalanceServlet.jsp","True");
-	x.onreadystatechange= function(){
-		if(this.readyState==4 && this.status==200)
-			document.getElementById("bal").innerHTML=this.responseText;
-	}
+	var d;
+	x.open("POST","TransactionHistoryServlet.jsp?start="+s+"&stop="+st,"True");
+	x.onload= function(){
+		if(x.readyState==4 && x.status==200)
+			d=x.responseText.split("@");
+		var z=0;
+		for(var i=0;z<d.length;i++)
+			{
+			var row=document.getElementById("table").insertRow(i+1);
+	        for(var j=0;j<6;j++)
+				{
+				if(d[++z]!=null)
+				row.insertCell(j).innerHTML=d[z-1];
+				}
+			
+			}
+	};
 	x.send();
 	
 }
-function dis()
-{
-	document.getElementById("submitbutton").style.display="none";
-	document.getElementById("wait").innerHTML="Please wait, your transaction is being processed.";
-	}
 </script>
 </head>
-<body>
+<body onload="return ex1()">
 <div class="frame1">
 <div class="frame-left">
 <ul>
@@ -217,47 +254,33 @@ function dis()
 <li id="notactive"><a href="TransferFunds.jsp">Transfer Funds</a></li>
 <li id="notactive"><a href="Withdraw.jsp">Withdraw</a></li>
 <li id="notactive"><a href="Deposit.jsp">Deposit</a></li>
-<li id="active"><a href="">Transaction History</a></li>
+<li id="active"><a href="TransactionHistory.jsp">Transaction History</a></li>
 </ul>
 </div>
 <div class="frame-right">
 <div class="dates">
 	<span>
 		<p>From : </p>
-		<input type="date" name="from">
+		<input type="date" name="from" min="2018-03-20" id="s">
 	</span>
 	<span>
 		<p>To : </p>
-		<input type="date" name="to">
+		<input type="date" name="to" min="2018-03-20" id="st">
 	</span>
+	<button onclick="return ex2()">Search</button>
 </div>
 
 <!-- Table for transaction history goes here-->
-<div class="transaction_table">
+<div class="transaction_table" id="table">
     <table>
         <tr>
-            <th>Date</th>
-            <th>Account-ID</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Date & Time</th>
             <th>Method</th>
             <th>Amount</th>
             <th>Status</th>
         </tr>
-        <!-- sample data starts-->
-        <tr>
-            <td>23-03-2020</td>
-            <td>1236547891</td>
-            <td>Deposit</td>
-            <td>₹ 2000</td>
-            <td>Successful</td>
-        </tr>
-        <tr>
-            <td>23-03-2020</td>
-            <td>1236547891</td>
-            <td>Withdraw</td>
-            <td>₹ 2000</td>
-            <td>Successful</td>
-        </tr>
-        <!-- sample data ends-->
     </table>
 </div>
 
@@ -269,7 +292,7 @@ function dis()
     <a href="">About</a>
 </div>
 <div id="hover_nav">
-    <a href="">Our Services</a>
+    <a href="">Our Services <i class="fa fa-caret-down"></i></a>
     <ul class="hover_nav_content">
         <li><a href="LoanApplication.jsp">Loan Application</a></li>
         <li><a href="Credit.jsp">Credit</a></li>

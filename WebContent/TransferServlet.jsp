@@ -25,6 +25,7 @@ try
 {
 	String user=(String)session.getAttribute("username");
 	String rec="";
+	String status="";
 	int amt=0;
 	Cookie ck[]=request.getCookies();
 	for(int i=0;i<ck.length;i++)
@@ -33,8 +34,12 @@ try
 			rec=ck[i].getValue();
 		if(ck[i].getName().equals("amt"))
 			amt=Integer.parseInt(ck[i].getValue());
+		if(ck[i].getName().equals("valid"))
+			status=ck[i].getValue();
 	}
 
+	if(status.equals("Successful"))
+	{	
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");
 	st=con.createStatement();
@@ -56,6 +61,7 @@ try
 	st.executeUpdate(s);
 	
 	con.close();
+	}
 	
 	Cookie ck1=new Cookie("mail","transfer");
 	ck1.setMaxAge(15);

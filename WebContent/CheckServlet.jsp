@@ -25,11 +25,22 @@ try
 		String un=rs.getString("username");
 		Cookie ck=new Cookie("temp",un);
 		Cookie ck1=new Cookie("amt",amt);
-		ck.setMaxAge(30);
-		ck1.setMaxAge(30);
+		ck.setMaxAge(90);
+		ck1.setMaxAge(90);
 		response.addCookie(ck);
 		response.addCookie(ck1);
-		response.sendRedirect("confirm.jsp");
+		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                + "0123456789"
+                + "abcdefghijklmnopqrstuvxyz"; 
+		StringBuilder sb = new StringBuilder(6);   
+		for (int i = 0; i < 6; i++) {   
+			int index = (int)(AlphaNumericString.length()* Math.random()); 
+			sb.append(AlphaNumericString.charAt(index)); 
+			}
+		Cookie ck2=new Cookie("auth",sb.toString());
+		ck2.setMaxAge(40);
+		response.addCookie(ck2);
+		response.sendRedirect("MailServlet");
 	}
 	else
 	{
