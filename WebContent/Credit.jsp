@@ -213,6 +213,12 @@ opacity : 0.4;
     margin-left: 90px;
 }
 </style>
+<script>
+function dis()
+{
+	document.getElementById("submitbutton").style.display="none";
+	document.getElementById("wait").innerHTML="Please wait, your request is being processed.";
+	}</script>
 </head>
 <body>
 <div class="frame1">
@@ -229,7 +235,7 @@ opacity : 0.4;
     <div class="apply">
         <h2>Credit Card</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni nam praesentium incidunt eaque! Eos perspiciatis, dolores, delectus nisi doloribus voluptate</p>
-        <button>Apply Now</button>
+        <button id="submitbutton" onclick="location.href='RequestATMCardServlet.jsp';dis();">Apply Now</button><br><span id="wait"></span>
     </div>
     <div class="benefits">
         <h3>Benefits</h3>

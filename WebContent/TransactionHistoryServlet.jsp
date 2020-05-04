@@ -17,7 +17,7 @@ try{
 	String s="";
 	while(rs.next())
 	{
-		s+=rs.getString("from_user")+"@"+rs.getString("to_user")+"@"+rs.getString("date_and_time")+"@"+rs.getString("method")+"@"+rs.getString("amount")+"@"+rs.getString("status")+"@";
+		s+=rs.getString("to_user")+"@"+rs.getString("date_and_time")+"@"+rs.getString("method")+"@"+rs.getString("amount")+"@"+rs.getString("status")+"@";
 	}
 	out.write(s);
 	con.close();

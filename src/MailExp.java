@@ -108,7 +108,7 @@ public class MailExp extends HttpServlet {
 		}
 
 		if(z.equals("transfer"))
-		    msg="A transfer request of Rs."+amt+" has been initiated to user "+rec+" from your account.\n"+"Request Status: "+status+" \nHave a nice day "+un;
+		    msg="A transfer request of Rs."+amt+" has been initiated to account xxxxxx"+rec.substring(6)+" from your account.\n"+"Request Status: "+status+" \nHave a nice day "+un;
 		if(z.equals("withdraw"))
 			msg="A withdraw request of Rs. "+amt+" has been made by you. Use the Code: "+sb.toString()+" at your nearest ATM to withdraw your amount.\nHave a nice day "+un;
 		if(z.equals("deposit"))
