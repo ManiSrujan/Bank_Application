@@ -19,10 +19,9 @@ if(un==null||un.equals(""))
         <header>
             <img class="desktop" src="image.png" alt="Image Load Error" title="Logo">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="Index.jsp">Home</a></li>
+                <li><a href="About.jsp">About</a></li>
+                <li><a href="ContactUs.jsp">Contact Us</a></li>
                 <li><a href="Registration.jsp">Sign Up</a></li>
             </ul>
         </header>

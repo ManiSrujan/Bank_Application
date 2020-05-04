@@ -6,6 +6,7 @@
 <meta charset="ISO-8859-1">
 <title>Loan Application</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <%
 /*String un=(String)session.getAttribute("username");
 if(un==null||un.equals(""))
@@ -27,7 +28,10 @@ position : absolute;
 top : 3%;
 left : 65%;
 }
-.header a{
+.header-options>div{
+    display: inline;
+}
+.header div>a{
 position : relative;
 color : #3a4a54;
 left : 20px;
@@ -40,7 +44,7 @@ font-weight : bold;
 font-family : Arial;
 letter-spacing: 0.12em;
 }
-.header a:after{
+.header div>a:after{
 position : absolute;
 bottom : 0;
 left : 50%;
@@ -50,9 +54,35 @@ height : 3.5px;
 background : #e8a348;
 transition : width 0.3s,left 0.3s;
 }
-.header a:hover:after{
+.header div>a:hover:after{
 width : 100%;
 left : 0;
+}
+.hover_nav_content{
+    position: absolute;
+    left:125px;
+    display: none;
+    border: 1px solid black;
+}
+.hover_nav_content li{
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    padding: 10px 30px 10px 0px;
+    border-bottom: 1px solid black;
+}
+.hover_nav_content a{
+    font-family : Arial;
+    font-size: 15px;
+    text-decoration: none;
+    color: #3a4a54;
+    margin-left: 15px;
+}
+.hover_nav_content li:hover{
+    background-color: #DADADA;
+}
+#hover_nav:hover .hover_nav_content{
+    display: block;
 }
 .frame1{
 position : absolute;
@@ -291,10 +321,23 @@ function calculate()
 </div>
 <div class="header">
 <div class="header-options">
-<a href="">About</a>
-<a href="">Our Services</a>
-<a href="">Contact Us</a>
-<a href="LogoutServlet.jsp">LogOut</a>
+<div>
+    <a href="">About</a>
+</div>
+<div id="hover_nav">
+    <a href="">Our Services <i class="fa fa-caret-down"></i></a>
+    <ul class="hover_nav_content">
+        <li><a href="LoanApplication.jsp">Loan Application</a></li>
+        <li><a href="Credit.jsp">Credit</a></li>
+        <li><a href="CheckBook.jsp">Cheque Book</a></li>
+    </ul>
+</div>
+<div>
+    <a href="">Contact Us</a>
+</div>
+<div>
+    <a href="LogoutServlet.jsp">LogOut</a>
+</div>
 </div>
 </div>
 </body>
