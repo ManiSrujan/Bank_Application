@@ -283,14 +283,14 @@ function dis()
     <ul class="hover_nav_content">
         <li><a href="LoanApplication.jsp">Loan Application</a></li>
         <li><a href="Credit.jsp">Credit</a></li>
-        <li><a href="CheckBook.jsp">Check Book</a></li>
+        <li><a href="CheckBook.jsp">Cheque Book</a></li>
     </ul>
 </div>
 <div>
     <a href="">Contact Us</a>
 </div>
 <div>
-    <a href="">LogOut</a>
+    <a href="LogoutServlet.jsp">LogOut</a>
 </div>
 
 </div>

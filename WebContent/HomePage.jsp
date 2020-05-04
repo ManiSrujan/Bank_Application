@@ -5,17 +5,16 @@
 <head>
 <meta charset="ISO-8859-1">
 <%@page import="java.sql.*" %>
-<%-- <%
+<%
 String un=(String)session.getAttribute("username");
 if(un==null||un.equals(""))
-{http://marketplace.eclipse.org/marketplace-client-intro?mpc_install=1403812
+{
 	
 	RequestDispatcher rd=request.getRequestDispatcher("Index.jsp");
 	rd.forward(request,response);
 	
 }
-%> --%>
-
+%>
 <title>Home</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -212,8 +211,18 @@ animation-fill-mode : forwards;
     100% {opacity:0;width:355px;}
 }
 </style>
+<script>
+function name(){
+	var x=new XMLHttpRequest();
+	x.open("POST","BalanceServlet.jsp?name=true","True");
+	x.onload = function(){
+		if(x.status==200 && x.readyState==4)
+			document.getElementById("name").innerHTML="Hi, "+this.responseText;
+	};
+	x.send();
+}</script>
 </head>
-<body>
+<body onload="return name()">
 <div class="frame1">
 <div class="frame-left">
 <ul>
@@ -230,7 +239,7 @@ animation-fill-mode : forwards;
 <div class="middle_text"><span> is Open.</span></div>
 </div>
 <div class="last_text">
-<span>Hi, <%-- <%=un %> --%></span>
+<span id="name"></span>
 </div>
 </div>
 </div>
@@ -251,7 +260,7 @@ animation-fill-mode : forwards;
     <a href="">Contact Us</a>
 </div>
 <div>
-    <a href="">LogOut</a>
+    <a href="LogoutServlet.jsp">LogOut</a>
 </div>
 </div>
 </div>
