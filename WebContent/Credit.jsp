@@ -228,8 +228,13 @@ opacity : 0.4;
 <div class="frame-right">
     <div class="apply">
         <h2>Credit Card</h2>
+<<<<<<< Updated upstream
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nulla dolores eos magni nam praesentium incidunt eaque! Eos perspiciatis, dolores, delectus nisi doloribus voluptate</p>
         <button>Apply Now</button>
+=======
+        <p>KL Bank Credit Cards offers a host of benefits, offers & features to cater to your needs. So get the Credit Card of your choice by applying for it right now !</p>
+        <button id="submitbutton" onclick="location.href='RequestATMCardServlet.jsp';dis();">Apply Now</button><br><span id="wait"></span>
+>>>>>>> Stashed changes
     </div>
     <div class="benefits">
         <h3>Benefits</h3>
@@ -238,32 +243,28 @@ opacity : 0.4;
                 <h4>Life Style Benefits</h4>
                 <img src="lifestyle-benefits.png" alt="">
                 <ul>
-                    <li>Lorem ipsum dolor sit amet</li>
-                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Enjoy discounts on shopping,<br> dining, movies etc</li>
                 </ul>
             </div>
             <div>
                 <h4>Travel Benefits</h4>
                 <img src="travel-benefits.png" alt="">
                 <ul>
-                    <li>Lorem ipsum dolor sit amet</li>
-                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Get complimentary airport lounge <br>access, fuel surcharge waiver, fuel discounts.  </li>
                 </ul>
             </div>
             <div>
                 <h4>Rewards & Service</h4>
                 <img src="rewards-and-service.png" alt="">
                 <ul>
-                    <li>Lorem ipsum dolor sit amet</li>
-                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Cash rewards, PAYBACK offers, 24x7<br> concierge service and much more.</li>
                 </ul>
             </div>
             <div>
                 <h4>Safe & Secure</h4>
                 <img src="safe-and-secure.png" alt="">
                 <ul>
-                    <li>Lorem ipsum dolor sit amet</li>
-                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Security of a Chip Card to protect <br>against fraud.</li>
                 </ul>
             </div>
         </div>
