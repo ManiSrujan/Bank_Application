@@ -24,9 +24,10 @@ ps.setString(2,pwd);
 ResultSet rs=ps.executeQuery();
 
 if(rs.next())
-{ 
+{    
 	session.setAttribute("username",un);
 	session.setAttribute("password",pwd);
+	session.setAttribute("accid",rs.getString("accnum"));
 	response.sendRedirect("HomePage.jsp");
 }
 else

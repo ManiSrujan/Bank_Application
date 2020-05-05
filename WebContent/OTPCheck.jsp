@@ -2,27 +2,43 @@
     pageEncoding="ISO-8859-1"%>
 <%
 Cookie ck[]=request.getCookies();
-String otp="";
+String op="";
 for(int i=0;i<ck.length;i++)
 {
 	if(ck[i].getName().equals("auth"))
-		otp=ck[i].getValue();
-	if(ck[i].getName().equals("valid"))
+		{
+		op=ck[i].getValue();
 		ck[i].setMaxAge(0);
+		response.addCookie(ck[i]);
+		}
+	
 }
-String ue=request.getParameter("otp");
-if(ue.equals(otp))
+String ue=String.valueOf(request.getParameter("otp"));
+if(ue.equals(op))
 {
-	Cookie ck1=new Cookie("valid","Successful");
-	ck1.setMaxAge(13);
-	response.addCookie(ck1);
+	for(int i=0;i<ck.length;i++)
+	{
+		if(ck[i].getName().equals("valid"))
+		{
+		ck[i].setValue("Successful");
+		ck[i].setMaxAge(40);
+		response.addCookie(ck[i]);
+		}
+	}
 	response.sendRedirect("TransferServlet.jsp");
 }
 else
 {
-	Cookie ck1=new Cookie("valid","Unsuccessful");
-	ck1.setMaxAge(13);
-	response.addCookie(ck1);
+	for(int i=0;i<ck.length;i++)
+	{
+		if(ck[i].getName().equals("valid"))
+		{
+		ck[i].setValue("Unsuccessful");
+		ck[i].setMaxAge(40);
+		response.addCookie(ck[i]);
+		}
+	}
 	response.sendRedirect("TransferServlet.jsp");
+	System.out.println(ue+" "+op);
 }
 %>

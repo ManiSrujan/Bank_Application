@@ -139,7 +139,7 @@ public class MailExp extends HttpServlet {
 			}
 			msg="Dear "+un+", you have applied for a loan with the plan:\n"+"Loan Amount:"+p+"\nTime:"+t+"\nRate Of Interest:"+r+"\nfor this, you'll have to pay\na Monthly of:"+m+"\nTotal Payment:"+total+"\nTotal Interest:"+toti+"\n Your loan terms are finalized and an agreement will be sent to you shortly. Please attach the necessary documents to the agreement and submit it at your nearest branch of KL Bank. \nHope you have a nice day!";
 		}
-		if(!(otp.equals("none")))
+		if(z.equals("otp"))
 		{
 			msg="The OTP for you transaction of amount transfer to account xxxxxx"+rec.substring(6)+" is "+otp+" . If you haven't requested this OTP, please contact you nearest branch of KL Bank.";
 		}
@@ -173,33 +173,47 @@ public class MailExp extends HttpServlet {
 			Transport.send(message);
 			System.out.println("Mail sent successfully");
 			
-			if(!(otp.equals("none")))
+			if(z.equals("otp"))
 			{
 				response.sendRedirect("confirm.jsp");
 			}
 			else if(z.equals("transfer"))
 			{
-				response.sendRedirect("TransferFunds.jsp");
+				out.println("<script language='javascript'>alert('Transaction "+status+"!');</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("TransferFunds.jsp");
+			rd.include(request,response);
 			}
 			else if(z.equals("withdraw"))
 			{
-				response.sendRedirect("Withdraw.jsp");
+				out.println("<script language='javascript'>alert('Transaction Successful!');</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("Withdraw.jsp");
+			rd.include(request,response);
 			}
 			else if(z.equals("deposit"))
 			{
-				response.sendRedirect("Deposit.jsp");
+				out.println("<script language='javascript'>alert('Transaction Successful!');</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("Deposit.jsp");
+			rd.include(request,response);
+				
 			}
 			else if(z.equals("Loan"))
 			{
-				response.sendRedirect("LoanApplication.jsp");
+				out.println("<script language='javascript'>alert('Your Loan Application has been received!');</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("LoanApplication.jsp");
+			rd.include(request,response);
+				
 			}
 			else if(z.equals("Checkbook"))
 			{
-				response.sendRedirect("CheckBook.jsp");
+				out.println("<script language='javascript'>alert('Cheque Book request received!');</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("CheckBook.jsp");
+			rd.include(request,response);
 			}
 			else if(z.equals("Card"))
-			{
-				response.sendRedirect("Credit.jsp");
+			{out.println("<script language='javascript'>alert('Credit Card request received!');</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("Credit.jsp");
+			rd.include(request,response);
+				
 			}
 			else {
 			out.println("<script language='javascript'>alert('Transaction Successful!');</script>");

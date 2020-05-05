@@ -10,15 +10,13 @@
 <body>
 <%@page import="java.sql.*" %>
 <%
-String un=(String)session.getAttribute("username");
+String un=(String)session.getAttribute("accid");
 String pwd=(String)session.getAttribute("password");
-Statement st=null;
 PreparedStatement ps=null;
 Connection con=null;
 ResultSet rs=null;
-String s="";
 Cookie ck[]=request.getCookies();
-String z="",amt="Null",rec="Self",status="Successful";
+String z="",amt="Null",rec="Self",status="";
 for(int i=0;i<ck.length;i++)
 {
 	if(ck[i].getName().equals("mail"))
@@ -27,36 +25,27 @@ for(int i=0;i<ck.length;i++)
 		rec=ck[i].getValue();
 	if(ck[i].getName().equals("amt"))
 		amt=ck[i].getValue();
-	if(ck[i].getName().equals("vaild"))
+	if(ck[i].getName().equals("valid"))
 		status=ck[i].getValue();
 }
 java.util.Date date=new java.util.Date();  
 java.sql.Date sdate=new java.sql.Date(date.getTime());
-
-
+if(z.equals("deposit")||z.equals("withdraw"))
+	status="Successful";
 try{
 	Class.forName("oracle.jdbc.driver.OracleDriver");
 	con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");
-	st=con.createStatement();
-	if(rec.equals("Self"))
-	{
-	s="select accnum from bal_table where username='"+un+"'";
-	rs=st.executeQuery(s);
-	if(rs.next()){
-	rec=rs.getString("accnum");
-	}
-	}
-		ps=con.prepareStatement("insert into trans values(?,?,?,?,?,?,?)");
-		ps.setString(1,un);
-		ps.setString(2,rec);
-		ps.setString(3,date.toString());
-		ps.setString(4,z);
-		ps.setString(5,amt);
-		ps.setDate(6,sdate);
-		ps.setString(7,status);
-		ps.executeUpdate();
-	con.close();
+	ps=con.prepareStatement("insert into trans values(?,?,?,?,?,?,?)");
+	ps.setString(1,un);
+	ps.setString(2,rec);
+	ps.setString(3,date.toString());
+	ps.setString(4,z);
+	ps.setString(5,amt);
+	ps.setDate(6,sdate);
+	ps.setString(7,status);
+	ps.executeUpdate();
 	response.sendRedirect("MailServlet");
+	con.close();
 }
 catch(Exception e)
 {
