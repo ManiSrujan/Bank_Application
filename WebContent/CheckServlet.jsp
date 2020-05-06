@@ -9,10 +9,14 @@
 <body>
 <%@page import="java.sql.*" %>
 <%
+String anum=(String)session.getAttribute("accid");
 String accnum=request.getParameter("accnum");
 String amt=request.getParameter("amt");
 Connection con=null;
 PreparedStatement ps=null;
+Statement st=null;
+String s="";
+int bal=0;
 try
 {
 	Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -32,6 +36,14 @@ try
 			sb.append(AlphaNumericString.charAt(index)); 
 			}
 		
+		s="select balance from bal_table where accnum='"+anum+"'";
+		st=con.createStatement();
+		ResultSet q=st.executeQuery(s);
+		if(q.next())
+			bal=Integer.parseInt(q.getString("balance"));
+		
+		if(bal>Integer.parseInt(amt)){
+		
 		Cookie ck=new Cookie("temp",accnum);
 		Cookie ck1=new Cookie("amt",amt);
 		Cookie ck2=new Cookie("auth",sb.toString());
@@ -45,6 +57,12 @@ try
 		response.addCookie(ck2);
 		response.addCookie(ck3);
 		response.sendRedirect("MailServlet");
+		}
+		else{
+			out.println("<script language='javascript'>alert('Insufficient Funds!');</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("TransferFunds.jsp");
+			rd.include(request, response);
+		}
 	}
 	else
 	{
