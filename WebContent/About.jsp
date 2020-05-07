@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>About</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <style>
@@ -20,13 +20,37 @@
     	main div:nth-child(1)::after{
     		content : "";
     		position:relative;
-    		top : 60px;
-    		left: 100%;
+    		top : -450px;
+    		left: 110%;
     		display : block;
     		height : 500px;
     		width : 2px;
     		background : #3a4a54;
     	}
+    	.left{
+    	top:100px;
+    	position:relative;
+    	font-size:20px;
+    	text-align:left;
+    	padding-left:20px;
+    	width:90%;
+    	height:50%;
+    	font-family: 'poppins',sans-serif;
+    	}
+    	.left ul{
+    	padding-left:30px;
+    	}
+    	.right{
+    	top:100px;
+    	position:relative;
+    	font-size:20px;
+    	text-align:center;
+    	padding-left:20px;
+    	width:90%;
+    	height:50%;
+    	font-family: 'poppins',sans-serif;
+    	}
+    	
     </style>
 </head>
 <body>
@@ -40,11 +64,46 @@
             </ul>
         </header>
         <main>
-        	<div>
-        	
+        	<div class="left">
+        	<p>This Web Application "KL Bank" is a project for the course Enterprise Programming (EP) done by the students of KL University, Vijayawada. This project does not aim to imitate any banking websites or any other websites which look or function in a similar fashion.</p>
+        	<br>
+        	<ul>
+        	<li>We would like to confirm the fact that most of the content of this project which include the logo, titles, front-end and back-end programming are original works of the students who prepared it.</li>
+        	<li> Some icons you will find in the website have been sourced through some open wesites which permit the use of these icons.</li>
+        	</ul> 
         	</div>
-        	<div>
-        	
+        	<div class="right">
+        	<table width="100%" height="100%" >
+        	<tr align="center">
+        	<th colspan="2">The Team:</th>
+        	</tr>
+        	<tr>
+        	<td>Thaneesh</td>
+        	<td>180031179</td>
+        	</tr>
+        	<tr>
+        	<td>Yashwanth Kumar Modala</td>
+        	<td>180031200</td>
+        	</tr>
+        	<tr>
+        	<td>Mani Srujan Baggani</td>
+        	<td>180031211</td>
+        	</tr>
+        	<tr>
+        	<td>Rohan Buggaveeti</td>
+        	<td>180031230</td>
+        	</tr>
+        	<tr></tr>
+        	<tr></tr>
+        	<tr>
+        	<td>Front-End:</td>
+        	<td>Mani Srujan, Yashwanth</td>
+        	</tr>
+        	<tr>
+        	<td>Back-End:</td>
+        	<td>Rohan, Thaneesh</td>
+        	</tr>
+        	</table>
         	</div>
         </main>
 </body>

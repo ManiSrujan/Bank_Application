@@ -131,7 +131,7 @@
                     <td><a href="https://github.com/ManiSrujan" target="_blank">github.com/ManiSrujan</a></td>
                 </tr>
                 <tr>
-                    <td>Rohan B</td>
+                    <td>Rohan </td>
                     <td>180031230</td>
                     <td>rohan.buggaveeti@gmail.com</td>
                     <td><a href="https://github.com/rohan-buggaveeti" target="_blank">github.com/rohan-buggaveeti</a></td>
@@ -139,14 +139,14 @@
                 <tr>
                     <td>Thaneesh</td>
                     <td>180031179</td>
-                    <td>Email-Id</td>
-                    <td>Github</td>
+                    <td>chichilithaneesh@gmail.com</td>
+                    <td><a href="https://github.com/thaneeshr" target="_blank">github.com/thaneeshr</a></td>
                 </tr>
                 <tr>
                     <td>Yashwanth</td>
                     <td>180031200</td>
-                    <td>Email-Id</td>
-                    <td>Github</td>
+                    <td>yaswanth.modala@gmail.com</td>
+                    <td><a href="https://github.com/yashumodala" target="_blank">github.com/yashumodala</a></td>
                 </tr>
             </table>
             <div class="contact">
