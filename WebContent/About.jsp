@@ -83,7 +83,7 @@
         	<h2>The Team :</h2>
         	<table width="100%" height="100%" >
         	<tr>
-        	<td>Thaneesh</td>
+        	<td>Thaneesh Reddy Chichili</td>
         	<td>180031179</td>
         	</tr>
         	<tr>
