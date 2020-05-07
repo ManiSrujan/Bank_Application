@@ -4,7 +4,7 @@ The project contains all the necessary images and an sql file for creating the d
 For the images to work in Tomcat Server, follow these steps:
 1) Navigate to your workspace.
 2) Now, navigate to .metadata>.plugins>org.eclipse.wst.server.core>tmp0>wtpwebaapps
-3) In this folder, you'll find the name with which you saved the project.
+3) In the wtpwebapps folder, you'll find another folder with the same name with which you saved the project.
 4) Copy all the images and paste them in this project folder.
 
 For setting up the database, follow these steps:
