@@ -78,6 +78,31 @@
             transform: translate(0px,-25px);
             right: 0;
         }
+        figcaption{
+        	display : none;
+        	position : relative;
+        	top : -28px;
+        	left : 50px;
+        	font-family : 'poppins',sans-serif;
+        	font-size : 19px;
+        	letter-spacing : 1px;
+        }
+        figure:hover{
+        	background-color : #e8a348;
+        }
+        figure:hover img{
+        	filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(327deg) brightness(102%) contrast(105%);
+        }
+        figure:hover figcaption{
+        	display : block;
+        	animation-name : slideleft;
+        	animation-duration : 0.3s;
+        }
+        @keyframes slideleft{
+        	0% {left:30px;opacity:0;}
+        	30% {left:40px;opacity:0;}
+        	100% {left:50px;opacity:1;}
+        }
     </style>
 </head>
 <body>
@@ -103,39 +128,43 @@
                     <td>Mani Srujan</td>
                     <td>180031211</td>
                     <td>bagganisrujan@gmail.com</td>
-                    <td>github.com/ManiSrujan</td>
+                    <td><a href="https://github.com/ManiSrujan" target="_blank">github.com/ManiSrujan</a></td>
                 </tr>
                 <tr>
-                    <td>Rohan B</td>
+                    <td>Rohan </td>
                     <td>180031230</td>
                     <td>rohan.buggaveeti@gmail.com</td>
-                    <td>github.com/rohan-buggaveeti</td>
+                    <td><a href="https://github.com/rohan-buggaveeti" target="_blank">github.com/rohan-buggaveeti</a></td>
                 </tr>
                 <tr>
                     <td>Thaneesh</td>
                     <td>180031179</td>
-                    <td>Email-Id</td>
-                    <td>Github</td>
+                    <td>chichilithaneesh@gmail.com</td>
+                    <td><a href="https://github.com/thaneeshr" target="_blank">github.com/thaneeshr</a></td>
                 </tr>
                 <tr>
                     <td>Yashwanth</td>
                     <td>180031200</td>
-                    <td>Email-Id</td>
-                    <td>Github</td>
+                    <td>yaswanth.modala@gmail.com</td>
+                    <td><a href="https://github.com/yashumodala" target="_blank">github.com/yashumodala</a></td>
                 </tr>
             </table>
             <div class="contact">
                 <figure>
                     <img src="Linkedin.png" alt="">
+                    <figcaption>Share</figcaption>
                 </figure>
                 <figure>
                     <img src="Facebook.png" alt="">
+                    <figcaption>Post</figcaption>
                 </figure>
                 <figure>
                     <img src="Google.png" alt="">
+                    <figcaption>Share</figcaption>
                 </figure>
                 <figure>
                     <img src="Twitter.png" alt="">
+                    <figcaption>Tweet</figcaption>
                 </figure>
             </div>
         </main>

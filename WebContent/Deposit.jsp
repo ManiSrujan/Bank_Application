@@ -7,6 +7,14 @@
 <title>Deposit</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<%String un=(String)session.getAttribute("username");
+if(un==null||un.equals(""))
+{
+	
+	RequestDispatcher rd=request.getRequestDispatcher("Index.jsp");
+	rd.forward(request,response);
+	
+} %>
 <style>
 *{
     padding: 0;
@@ -288,7 +296,7 @@ function dis()
 <div class="header">
 <div class="header-options">
 <div>
-    <a href="">About</a>
+    <a href="About.jsp" target="_blank">About</a>
 </div>
 <div id="hover_nav">
     <a href="">Our Services <i class="fa fa-caret-down"></i></a>

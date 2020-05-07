@@ -7,6 +7,14 @@
 <title>Transaction History</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<%String un=(String)session.getAttribute("username");
+if(un==null||un.equals(""))
+{
+	
+	RequestDispatcher rd=request.getRequestDispatcher("Index.jsp");
+	rd.forward(request,response);
+	
+} %>
 <style>
 *{
     padding: 0;
@@ -164,13 +172,14 @@ opacity : 0.4;
 }
 .frame-right .dates{
 	display : flex;
-    width: 60%;
+    width: 75%;
     height:auto;
     justify-content: flex-start;
+    /*background : red;*/
 }
 .frame-right span{
     border: 1px solid black;
-    padding: 5px 0 5px 10px;
+    padding: 15px 0 5px 10px;
     margin-right : 50px;
     width: 40%;
 }
@@ -178,11 +187,11 @@ opacity : 0.4;
     border : 0px;
     outline: none;
     text-align: end;
+    margin-left: 10px;
 }
 .frame-right p{
     display: inline;
     font-weight : bold;
-    margin-right: 10px;
 }
 .frame-right .transaction_table{
     margin-top: 40px;
@@ -299,7 +308,7 @@ function ex2()
 <div class="header">
 <div class="header-options">
 <div>
-    <a href="">About</a>
+    <a href="About.jsp" target="_blank">About</a>
 </div>
 <div id="hover_nav">
     <a href="">Our Services <i class="fa fa-caret-down"></i></a>

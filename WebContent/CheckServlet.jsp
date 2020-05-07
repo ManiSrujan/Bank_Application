@@ -9,10 +9,14 @@
 <body>
 <%@page import="java.sql.*" %>
 <%
+String anum=(String)session.getAttribute("accid");
 String accnum=request.getParameter("accnum");
 String amt=request.getParameter("amt");
 Connection con=null;
 PreparedStatement ps=null;
+Statement st=null;
+String s="";
+int bal=0;
 try
 {
 	Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -22,12 +26,7 @@ try
 	ResultSet rs=ps.executeQuery();
 	if(rs.next())
 	{ 
-		Cookie ck=new Cookie("temp",accnum);
-		Cookie ck1=new Cookie("amt",amt);
-		ck.setMaxAge(90);
-		ck1.setMaxAge(90);
-		response.addCookie(ck);
-		response.addCookie(ck1);
+		
 		String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 + "0123456789"
                 + "abcdefghijklmnopqrstuvxyz"; 
@@ -36,10 +35,34 @@ try
 			int index = (int)(AlphaNumericString.length()* Math.random()); 
 			sb.append(AlphaNumericString.charAt(index)); 
 			}
+		
+		s="select balance from bal_table where accnum='"+anum+"'";
+		st=con.createStatement();
+		ResultSet q=st.executeQuery(s);
+		if(q.next())
+			bal=Integer.parseInt(q.getString("balance"));
+		
+		if(bal>Integer.parseInt(amt)){
+		
+		Cookie ck=new Cookie("temp",accnum);
+		Cookie ck1=new Cookie("amt",amt);
 		Cookie ck2=new Cookie("auth",sb.toString());
-		ck2.setMaxAge(40);
+		Cookie ck3=new Cookie("mail","otp");
+		ck.setMaxAge(110);
+		ck1.setMaxAge(110);
+		ck2.setMaxAge(50);
+		ck3.setMaxAge(20);
+		response.addCookie(ck);
+		response.addCookie(ck1);
 		response.addCookie(ck2);
+		response.addCookie(ck3);
 		response.sendRedirect("MailServlet");
+		}
+		else{
+			out.println("<script language='javascript'>alert('Insufficient Funds!');</script>");
+			RequestDispatcher rd=request.getRequestDispatcher("TransferFunds.jsp");
+			rd.include(request, response);
+		}
 	}
 	else
 	{
