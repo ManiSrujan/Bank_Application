@@ -297,7 +297,7 @@ function dis()
 <div class="header">
 <div class="header-options">
 <div>
-    <a href="">About</a>
+    <a href="About.jsp" target="_blank">About</a>
 </div>
 <div id="hover_nav">
     <a href="">Our Services <i class="fa fa-caret-down"></i></a>

@@ -19,8 +19,8 @@
     	}
     	main div:nth-child(1)::after{
     		content : "";
-    		position:relative;
-    		top : -450px;
+    		position:absolute;
+    		top : -100px;
     		left: 110%;
     		display : block;
     		height : 500px;
@@ -28,20 +28,22 @@
     		background : #3a4a54;
     	}
     	.left{
-    	top:100px;
+    	top:150px;
     	position:relative;
-    	font-size:20px;
+    	font-size: 19px;
     	text-align:left;
-    	padding-left:20px;
+    	padding-left:30px;
     	width:90%;
     	height:50%;
     	font-family: 'poppins',sans-serif;
+    	color : #3a4a54;
     	}
     	.left ul{
     	padding-left:30px;
     	}
     	.right{
-    	top:100px;
+    	color : #3a4a54;
+    	top:150px;
     	position:relative;
     	font-size:20px;
     	text-align:center;
@@ -49,6 +51,11 @@
     	width:90%;
     	height:50%;
     	font-family: 'poppins',sans-serif;
+    	margin-top : -50px;
+    	}
+    	.right h2{
+    		font-size : 30px;
+    		margin-bottom : 30px;
     	}
     	
     </style>
@@ -73,10 +80,8 @@
         	</ul> 
         	</div>
         	<div class="right">
+        	<h2>The Team :</h2>
         	<table width="100%" height="100%" >
-        	<tr align="center">
-        	<th colspan="2">The Team:</th>
-        	</tr>
         	<tr>
         	<td>Thaneesh</td>
         	<td>180031179</td>

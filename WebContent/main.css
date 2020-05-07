@@ -39,6 +39,11 @@ li{
     position: relative;
     margin-bottom: 15px;
 }
+header ul li:nth-child(4){
+	border : 2px solid #e8a348;
+	border-radius : 5px;
+	padding : 5px;
+}
 header li a{
     letter-spacing: 0.15em;
     text-transform: uppercase;
