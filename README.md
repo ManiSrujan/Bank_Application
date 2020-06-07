@@ -1,6 +1,8 @@
 # Bank_Application
 The project contains all the necessary images and an sql file for creating the database tables.
 
+NOTE: You need to download the Java Mail API to use the Mail functionality. You'll find it here https://github.com/javaee/javamail/releases/download/JAVAMAIL-1_6_2/javax.mail.jar 
+
 For the images to work in Tomcat Server, follow these steps:
 1) Navigate to your workspace.
 2) Now, navigate to .metadata>.plugins>org.eclipse.wst.server.core>tmp0>wtpwebaapps
