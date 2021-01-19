@@ -24,7 +24,7 @@ if(un==null||un.equals(""))
 .header-options{
 position : absolute;
 top : 3%;
-left : 65%;
+left : 64%;
 }
 .header-options>div{
     display: inline;
